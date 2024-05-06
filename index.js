@@ -36,17 +36,20 @@ app.use(cors());
 
 // API endpoint to handle form submissions
 app.post('/api/contact', async (req, res) => {
-  const { name, email, message } = req.body;
+  const { name, email,number, jobtitle, organization, message } = req.body;
 
   try {
     // Send email using Outlook
     await transporter.sendMail({
       from: userid, // Sender address (your Outlook email address)
-      to: email, // Recipient address (where you want to receive form data)
+      to: 'shweta.singh@recqarz.com', // Recipient address (where you want to receive form data)
       subject: 'New Contact Form Submission', // Subject line
       text: `
         Name: ${name}
         Email: ${email}
+        Number: ${number}
+        Job Title: ${jobtitle}
+        Organization: ${organization}
         Message: ${message}
       `, // Plain text body
     });
