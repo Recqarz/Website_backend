@@ -23,8 +23,8 @@ const transporter = nodemailer.createTransport({
   port: 587, // Port for secure SMTP (TLS)
   secure: false, // Set to true if your SMTP server requires secure connection (TLS)
   auth: {
-    user: "shweta.singh@recqarz.com", // Your Outlook email address
-    pass: "Buw14365", // Your Outlook password
+    user: process.env.userid, // Your Outlook email address
+    pass: process.env.pass, // Your Outlook password
   },
 });
 
